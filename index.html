@@ -34,7 +34,7 @@
           <label for="SiteNameInput" class="form-label">
             <i class="fa-solid fa-book-bookmark pe-2"></i>
             Site Name</label>
-          <input oninput="validateName()" type="text" class="form-control" id="SiteNameInput" placeholder="Bookmark Name" />
+          <input oninput="validateName()" type="text" class="form-control " id="SiteNameInput" placeholder="Bookmark Name" />
         </div>
         <div class="mb-3 fw-bold">
           
@@ -42,7 +42,7 @@
             <i class="fa-solid fa-link pe-2"></i>
             Site Url</label
           >
-          <input type="text" class="form-control" id="SiteUrlInput" placeholder="Website url"/>
+          <input oninput="ValidateUrl()" type="text" class="form-control" id="SiteUrlInput" placeholder="Website url"/>
         </div>
         <div class="my-4">
 <button type="button" onclick="addUrl()" class="btn btn-submit m-auto d-block px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -105,7 +105,9 @@
 </div>
 
 
+
     <script src="./js/main.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
+
   </body>
 </html>
