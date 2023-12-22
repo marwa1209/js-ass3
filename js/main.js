@@ -13,20 +13,20 @@ if (localStorage.getItem("urls") != null) {
   display();
 }
 function addUrl() {
-if (validateName() && ValidateUrl()) {
-  var urls = {
-    name: SiteNameInput.value,
-    url: SiteUrlInput.value,
-  };
-  urlList.push(urls);
-  localStorage.setItem("urls", JSON.stringify(urlList));
-  display();
-  clear();
-} else {
-  var modal = document.querySelector(".modal");
-  console.log(modal);
-  modal.setAttribute("id", "exampleModal");
-}
+  if (validateName() && ValidateUrl()) {
+    var urls = {
+      name: SiteNameInput.value,
+      url: SiteUrlInput.value,
+    };
+    urlList.push(urls);
+    localStorage.setItem("urls", JSON.stringify(urlList));
+    display();
+    clear();
+  } else {
+    var modal = document.querySelector(".modal");
+    console.log(modal);
+    modal.setAttribute("id", "exampleModal");
+  }
 }
 function display() {
   var cartoona = "";
@@ -52,34 +52,31 @@ function clear() {
   SiteUrlInput.value = "";
 }
 
-
 // validation
-function validateName(){
-var regexName = /^[a-z]{3,15}$/
-var text= SiteNameInput.value;
-if(regexName.test(text)){
+function validateName() {
+  var regexName = /^[a-z]{3,15}$/;
+  var text = SiteNameInput.value;
+  if (regexName.test(text)) {
     SiteNameInput.classList.add("is-valid");
-      SiteNameInput.classList.remove("is-invalid");
-      return true;
-}
-else{
-       SiteNameInput.classList.add("is-invalid");
-       SiteNameInput.classList.remove("is-valid"); 
-       return false;
-}
-}
-
-function ValidateUrl(){
-var urlRegex = /^[a-z]{3,15}.com$/;
-var text = SiteUrlInput.value;
-if (urlRegex.test(text)) {
-  SiteUrlInput.classList.add("is-valid");
-  SiteUrlInput.classList.remove("is-invalid");
-  return true;
-} else {
-  SiteUrlInput.classList.add("is-invalid");
-  SiteUrlInput.classList.remove("is-valid");
-  return false;
-}
+    SiteNameInput.classList.remove("is-invalid");
+    return true;
+  } else {
+    SiteNameInput.classList.add("is-invalid");
+    SiteNameInput.classList.remove("is-valid");
+    return false;
+  }
 }
 
+function ValidateUrl() {
+  var urlRegex = /^[a-z]{3,15}.com$/;
+  var text = SiteUrlInput.value;
+  if (urlRegex.test(text)) {
+    SiteUrlInput.classList.add("is-valid");
+    SiteUrlInput.classList.remove("is-invalid");
+    return true;
+  } else {
+    SiteUrlInput.classList.add("is-invalid");
+    SiteUrlInput.classList.remove("is-valid");
+    return false;
+  }
+}
